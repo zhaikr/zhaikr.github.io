@@ -3,12 +3,12 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: JackRay的小博客
 subtitle:
-description:
+description: 儿时不知画中意，长大以是画中人
 keywords:
 author: JackRay
-language:
+language: zh-Hans
 timezone:
 
 # URL
@@ -82,3 +82,8 @@ deploy:
   repo: https://github.com/zhaikr/zhaikr.github.io.git
   branch: master
 
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true

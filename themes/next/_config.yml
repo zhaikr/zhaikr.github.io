@@ -31,7 +31,7 @@ favicon:
   #ms_browserconfig: /images/browserconfig.xml
 
 # Set default keywords (Use a comma to separate)
-keywords: "Hexo, NexT"
+keywords: "JackRay, NexT"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -41,20 +41,20 @@ rss:
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  #since: 2015
+  since: 2019
 
   # Icon between year and copyright info.
   icon: user
 
   # If not defined, will be used `author` from Hexo main config.
-  copyright:
+  copyright: false
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
   powered: true
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
-    enable: true
+    enable: false
     # Version info of NexT after scheme info (vX.X.X).
     version: true
   # -------------------------------------------------------------
@@ -89,10 +89,10 @@ index_with_subtitle: false
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
 menu:
   home: / || home
-  #about: /about/ || user
+  about: /about || user 
   #tags: /tags/ || tags
-  #categories: /categories/ || th
-  archives: /archives/ || archive
+  categories: /categories || th
+  archives: /archives || archive
   #schedule: /schedule/ || calendar
   #sitemap: /sitemap.xml || sitemap
   #commonweal: /404/ || heartbeat
@@ -101,16 +101,15 @@ menu:
 menu_icons:
   enable: true
 
-
 # ---------------------------------------------------------------
 # Scheme Settings
 # ---------------------------------------------------------------
 
 # Schemes
-scheme: Muse
+#scheme: Muse
 #scheme: Mist
 #scheme: Pisces
-#scheme: Gemini
+scheme: Gemini
 
 
 # ---------------------------------------------------------------
@@ -122,9 +121,9 @@ scheme: Muse
 # Key is the link label showing to end users.
 # Value before `||` delimeter is the target permalink.
 # Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
-#social:
-  #GitHub: https://github.com/yourname || github
-  #E-Mail: mailto:yourname@gmail.com || envelope
+social:
+  GitHub: https://zhaikr.github.io/ || github
+  E-Mail: mailto:1119391474@qq.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -136,6 +135,8 @@ scheme: Muse
 
 social_icons:
   enable: true
+  Github: github
+  E-Mail: envelope
   icons_only: false
   transition: false
 
@@ -228,8 +229,8 @@ symbols_count_time:
   separated_meta: true
   item_text_post: true
   item_text_total: false
-  awl: 5
-  wpm: 200
+  awl: 4
+  wpm: 275
 
 # Wechat Subscriber
 #wechat_subscriber:
@@ -381,7 +382,7 @@ valine:
   notify: false # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
   placeholder: Just go go # comment box placeholder
-  avatar: mm # gravatar style
+  avatar: /source/images/39522081.jpg # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
 
