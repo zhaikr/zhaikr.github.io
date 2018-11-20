@@ -77,14 +77,14 @@
 
 <meta name="description" content="儿时不知画中意，长大以是画中人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:title" content="categories">
+<meta property="og:url" content="http://yoursite.com/categories/index.html">
 <meta property="og:site_name" content="JackRay的小博客">
 <meta property="og:description" content="儿时不知画中意，长大以是画中人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-19T13:57:32.936Z">
+<meta property="og:updated_time" content="2018-11-19T13:57:50.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
+<meta name="twitter:title" content="categories">
 <meta name="twitter:description" content="儿时不知画中意，长大以是画中人">
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/about/">
+  <link rel="canonical" href="http://yoursite.com/categories/">
 
 
 
@@ -266,7 +266,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JackRay">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/39522081.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -358,78 +358,28 @@
       
         
           
-            <p>一.安装Git-LFS</p>
-<p>当向github上传一些项目时会有一些提示</p>
-<pre><code>$ remote: warning: Large files detected.
-$ remote: error: File giant_file is 123.00 MB; this exceeds GitHub&apos;s file size limit of 100 MB
-</code></pre><p>这时候就需要检查一下自己的github版本</p>
-<pre><code>$ git --version
-</code></pre><p>如下图所示：<br><img src="https://img-blog.csdnimg.cn/2018111922111368.png" alt="在这里插入图片描述"><br>之后安装Git-LFS打开终端</p>
-<p> 1.添加apt-get源</p>
-<pre><code>$ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-</code></pre><p>2.安装Git-LFS</p>
-<pre><code>$ sudo apt-get install git-lfs
-</code></pre><p>3.初始化Git-LFS</p>
-<pre><code>$ git lfs install
-</code></pre><p>Git-LFS就安装完成了</p>
-<p> 二.github官网进行账号注册</p>
-<p>点击个人信息里的Settings</p>
-<p><img src="https://img-blog.csdnimg.cn/2018111922113814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>然后点击SSH and GPS keys          </p>
-<p><img src="https://img-blog.csdnimg.cn/20181119221402570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p> 里面会有title 和 key</p>
-<p>三.生成SSH秘钥</p>
-<p>1.检查秘钥</p>
-<pre><code>$ ls ~/.ssh/
-</code></pre><p>如果有秘钥进行备份</p>
-<pre><code>$ mkdir key_backup
-</code></pre><p><code>$ cp ~/.ssh/id_* k</code>ey_backup</p>
-<p> 2.生成ssh秘钥</p>
-<pre><code>$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot; 
-#将your_email@example.com替换成你自己的邮箱
-</code></pre><p>之后会有提示直接回车就行了</p>
-<p>3.复制公钥</p>
-<pre><code>$ cat ~/.ssh/id_rsa.pub
-</code></pre><p>复制打开的内容到之前网站中的 key，title 可以随便填写 </p>
-<p>4.验证测试</p>
-<pre><code>$ ssh -T git@github.com
-</code></pre><p>执行后提示：</p>
-<pre><code>Hi github! You’ve successfully authenticated, but GitHub does not provide shell access. 
-此时设置用户名和邮箱为注册Github时的名字
-
-$ git config --global user.name “xxx”
-$ git config --global user.email xxx@gmail.com
-</code></pre><p>name就是你github的名字, email是你github的邮箱</p>
-<p>四.创建远程仓库在github上</p>
-<p><img src="https://img-blog.csdnimg.cn/20181119221429291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>在此我创建一个名叫example的仓库，在repository name中输入example然后点击create repository</p>
-<p>点击复制地址</p>
-<p>五.建立本地仓库</p>
-<pre><code>$ mkdir example
-  #向文件夹中添加文件，加入仓库
-$ cd example
-$ git init 初始化仓库
-$ touch example.txt 创建一个txt文件
-$ git add . //.表示全添加 或者指定文件名
-  #提交到仓库，这个版本名字叫
-$ git commit -m &quot;first commit&quot; #&quot;first commit&quot;为备注可自行修改
-</code></pre><p>六.提交本地代码到远程（同步）</p>
-<pre><code>$ git remote add origin git@github.com:yourgithubname/yourrepositoryname 
-#此时用之前复制的仓库url 替换“git@github.com:yourgithubname/yourrepositoryname”
-$ git push -u origin master
-</code></pre><p>然后需要输入 name  和你账号的password</p>
-<p>此时就上传成功</p>
-<p><img src="https://img-blog.csdnimg.cn/20181119221530283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<p>之后我们就可以检查远程仓库</p>
-<p><img src="https://img-blog.csdnimg.cn/20181119221547851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们上传文件成功</p>
-
-          
+          一.安装Git-LFS
+当向github上传一些项目时会有一些提示
+$ remote: warning: Large files detected.
+$ remote: error: File giant_file is 123.00 MB; this exceeds GitHub&apos;s f
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/19/Ubuntu GitHub上传项目/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
     
     
     
+
+    <div>
+     
+    </div>
 
     
 
@@ -475,7 +425,7 @@ $ git push -u origin master
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="JackRay">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/uploads/39522081.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -567,23 +517,25 @@ $ git push -u origin master
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/19/hello-world/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
     
     
     
+
+    <div>
+     
+    </div>
 
     
 
@@ -645,6 +597,8 @@ $ git push -u origin master
       <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/39522081.jpg" alt="JackRay">
             
               <p class="site-author-name" itemprop="name">JackRay</p>
               <p class="site-description motion-element" itemprop="description">儿时不知画中意，长大以是画中人</p>
@@ -903,5 +857,9 @@ $ git push -u origin master
 
   
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>;
+    <script>
+    $("body").backstretch("https://img.zcool.cn/community/01f36b57de8c260000012e7edc3f78.jpg@1280w_1l_2o_100sh.jpg");
+    </script>
 </body>
 </html>

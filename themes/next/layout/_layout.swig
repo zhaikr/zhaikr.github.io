@@ -88,5 +88,9 @@
   {% include '_third-party/mathjax.swig' %}
   {% include '_third-party/scroll-cookie.swig' %}
   {% include '_third-party/exturl.swig' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>;
+    <script>
+    $("body").backstretch("https://img.zcool.cn/community/01f36b57de8c260000012e7edc3f78.jpg@1280w_1l_2o_100sh.jpg");
+    </script>
 </body>
 </html>

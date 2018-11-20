@@ -151,7 +151,7 @@ links_layout: block
 # Sidebar Avatar
 # in theme directory(source/images): /images/avatar.gif
 # in site  directory(source/uploads): /uploads/avatar.gif
-#avatar: /images/avatar.gif
+avatar: /uploads/39522081.jpg
 
 # Table Of Contents in the Sidebar
 toc:
@@ -213,7 +213,7 @@ excerpt_description: true
 # Automatically Excerpt. Not recommend.
 # Please use <!-- more --> in the post to control excerpt accurately.
 auto_excerpt:
-  enable: false
+  enable: true
   length: 150
 
 # Post meta display settings
@@ -382,7 +382,7 @@ valine:
   notify: false # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
   placeholder: Just go go # comment box placeholder
-  avatar: /source/images/39522081.jpg # gravatar style
+  avatar: /uploads/39522081.jpg # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
 
@@ -814,6 +814,9 @@ vendors:
   # https://github.com/revir/need-more-share2
   needMoreShare2:
 
+
+passage_end_tag:
+  enabled: true
 
 # Assets
 css: css
