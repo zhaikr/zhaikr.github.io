@@ -380,7 +380,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ remote: warning: Large files detected.</span><br><span class="line">$ remote: error: File giant_file is 123.00 MB; this exceeds GitHub<span class="string">'s file size limit of 100 MB</span></span><br></pre></td></tr></table></figure>
 <p>这时候就需要检查一下自己的github版本</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
-<p>如下图所示：<br><img src="https://img-blog.csdnimg.cn/2018111922111368.png" alt="在这里插入图片描述"><br>之后安装Git-LFS打开终端</p>
+<p>如下图所示：<br><img src="/2018/11/19/Ubuntu GitHub上传项目/2018111922111368.png" alt="在这里插入图片描述"><br>之后安装Git-LFS打开终端</p>
 <p> 1.添加apt-get源</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash</span><br></pre></td></tr></table></figure>
 <p>2.安装Git-LFS</p>
@@ -390,9 +390,9 @@
 <p>Git-LFS就安装完成了</p>
 <p> 二.github官网进行账号注册</p>
 <p>点击个人信息里的Settings</p>
-<p><img src="https://img-blog.csdnimg.cn/2018111922113814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="/2018/11/19/Ubuntu GitHub上传项目/2018111922113814.png" alt="在这里插入图片描述"></p>
 <p>然后点击SSH and GPS keys          </p>
-<p><img src="https://img-blog.csdnimg.cn/20181119221402570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="/2018/11/19/Ubuntu GitHub上传项目/20181119221402570.png" alt="在这里插入图片描述"></p>
 <p> 里面会有title 和 key</p>
 <p>三.生成SSH秘钥</p>
 <p>1.检查秘钥</p>
@@ -412,7 +412,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Hi github! You’ve successfully authenticated, but GitHub does not provide shell access. </span><br><span class="line">此时设置用户名和邮箱为注册Github时的名字</span><br><span class="line"></span><br><span class="line">$ git config --global user.name “xxx”</span><br><span class="line">$ git config --global user.email xxx@gmail.com</span><br></pre></td></tr></table></figure>
 <p>name就是你github的名字, email是你github的邮箱</p>
 <p>四.创建远程仓库在github上</p>
-<p><img src="https://img-blog.csdnimg.cn/20181119221429291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="/2018/11/19/Ubuntu GitHub上传项目/20181119221429291.png" alt="在这里插入图片描述"></p>
 <p>在此我创建一个名叫example的仓库，在repository name中输入example然后点击create repository</p>
 <p>点击复制地址</p>
 <p>五.建立本地仓库</p>
@@ -421,9 +421,9 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:yourgithubname/yourrepositoryname </span><br><span class="line"><span class="comment">#此时用之前复制的仓库url 替换“git@github.com:yourgithubname/yourrepositoryname”</span></span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
 <p>然后需要输入 name  和你账号的password</p>
 <p>此时就上传成功</p>
-<p><img src="https://img-blog.csdnimg.cn/20181119221530283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p><img src="/2018/11/19/Ubuntu GitHub上传项目/20181119221530283.png" alt="在这里插入图片描述"></p>
 <p>之后我们就可以检查远程仓库</p>
-<p><img src="https://img-blog.csdnimg.cn/20181119221547851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>我们上传文件成功</p>
+<p><img src="/2018/11/19/Ubuntu GitHub上传项目/20181119221547851.png" alt="在这里插入图片描述"><br>我们上传文件成功</p>
 
       
     </div>

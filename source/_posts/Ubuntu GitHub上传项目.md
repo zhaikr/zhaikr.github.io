@@ -25,7 +25,7 @@ $ git --version
 ```
 
 如下图所示： 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2018111922111368.png)
+![在这里插入图片描述](Ubuntu GitHub上传项目/2018111922111368.png)
 之后安装Git-LFS打开终端
 
  1.添加apt-get源
@@ -52,12 +52,12 @@ Git-LFS就安装完成了
 
 点击个人信息里的Settings
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2018111922113814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](Ubuntu GitHub上传项目/2018111922113814.png)
 
 
 然后点击SSH and GPS keys          
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20181119221402570.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](Ubuntu GitHub上传项目/20181119221402570.png)
 
  里面会有title 和 key
 
@@ -117,7 +117,7 @@ name就是你github的名字, email是你github的邮箱
 
 四.创建远程仓库在github上
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20181119221429291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](Ubuntu GitHub上传项目/20181119221429291.png)
 
 在此我创建一个名叫example的仓库，在repository name中输入example然后点击create repository
 
@@ -150,11 +150,11 @@ $ git push -u origin master
 
 此时就上传成功
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20181119221530283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](Ubuntu GitHub上传项目/20181119221530283.png)
 
 之后我们就可以检查远程仓库
 
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20181119221547851.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](Ubuntu GitHub上传项目/20181119221547851.png)
 我们上传文件成功
 
