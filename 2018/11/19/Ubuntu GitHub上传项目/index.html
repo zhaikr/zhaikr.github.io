@@ -77,14 +77,14 @@
 
 <meta name="description" content="儿时不知画中意，长大以是画中人">
 <meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta property="og:title" content="about">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
 <meta property="og:site_name" content="JackRay的小博客">
 <meta property="og:description" content="儿时不知画中意，长大以是画中人">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-19T13:57:50.325Z">
+<meta property="og:updated_time" content="2018-11-19T13:57:32.936Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
+<meta name="twitter:title" content="about">
 <meta name="twitter:description" content="儿时不知画中意，长大以是画中人">
 
 
@@ -117,7 +117,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/about/">
 
 
 
@@ -133,7 +133,7 @@
         }
     })();
 </script>
-  <title> | JackRay的小博客</title>
+  <title>在Ubuntu上向Github上传项目 | JackRay的小博客</title>
   
 
 
@@ -277,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">在Ubuntu上向Github上传项目</h1>
         
 
         <div class="post-meta">
@@ -289,7 +289,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T22:20:47+08:00">2018-11-19</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-19T10:00:00+08:00">2018-11-19</time>
             
 
             
@@ -297,6 +297,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/github/" itemprop="url" rel="index">
+                    <span itemprop="name">github</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -355,18 +377,17 @@
       
         <p>一.安装Git-LFS</p>
 <p>当向github上传一些项目时会有一些提示</p>
-<pre><code>$ remote: warning: Large files detected.
-$ remote: error: File giant_file is 123.00 MB; this exceeds GitHub&apos;s file size limit of 100 MB
-</code></pre><p>这时候就需要检查一下自己的github版本</p>
-<pre><code>$ git --version
-</code></pre><p>如下图所示：<br><img src="https://img-blog.csdnimg.cn/2018111922111368.png" alt="在这里插入图片描述"><br>之后安装Git-LFS打开终端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ remote: warning: Large files detected.</span><br><span class="line">$ remote: error: File giant_file is 123.00 MB; this exceeds GitHub<span class="string">'s file size limit of 100 MB</span></span><br></pre></td></tr></table></figure>
+<p>这时候就需要检查一下自己的github版本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git --version</span><br></pre></td></tr></table></figure>
+<p>如下图所示：<br><img src="https://img-blog.csdnimg.cn/2018111922111368.png" alt="在这里插入图片描述"><br>之后安装Git-LFS打开终端</p>
 <p> 1.添加apt-get源</p>
-<pre><code>$ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
-</code></pre><p>2.安装Git-LFS</p>
-<pre><code>$ sudo apt-get install git-lfs
-</code></pre><p>3.初始化Git-LFS</p>
-<pre><code>$ git lfs install
-</code></pre><p>Git-LFS就安装完成了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash</span><br></pre></td></tr></table></figure>
+<p>2.安装Git-LFS</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install git-lfs</span><br></pre></td></tr></table></figure>
+<p>3.初始化Git-LFS</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git lfs install</span><br></pre></td></tr></table></figure>
+<p>Git-LFS就安装完成了</p>
 <p> 二.github官网进行账号注册</p>
 <p>点击个人信息里的Settings</p>
 <p><img src="https://img-blog.csdnimg.cn/2018111922113814.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -375,44 +396,30 @@ $ remote: error: File giant_file is 123.00 MB; this exceeds GitHub&apos;s file s
 <p> 里面会有title 和 key</p>
 <p>三.生成SSH秘钥</p>
 <p>1.检查秘钥</p>
-<pre><code>$ ls ~/.ssh/
-</code></pre><p>如果有秘钥进行备份</p>
-<pre><code>$ mkdir key_backup
-</code></pre><p><code>$ cp ~/.ssh/id_* k</code>ey_backup</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ls ~/.ssh/</span><br></pre></td></tr></table></figure>
+<p>如果有秘钥进行备份</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir key_backup</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cp ~/.ssh/id_* key_backup</span><br></pre></td></tr></table></figure>
 <p> 2.生成ssh秘钥</p>
-<pre><code>$ ssh-keygen -t rsa -C &quot;your_email@example.com&quot; 
-#将your_email@example.com替换成你自己的邮箱
-</code></pre><p>之后会有提示直接回车就行了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span> </span><br><span class="line"><span class="comment">#将your_email@example.com替换成你自己的邮箱</span></span><br></pre></td></tr></table></figure>
+<p>之后会有提示直接回车就行了</p>
 <p>3.复制公钥</p>
-<pre><code>$ cat ~/.ssh/id_rsa.pub
-</code></pre><p>复制打开的内容到之前网站中的 key，title 可以随便填写 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>复制打开的内容到之前网站中的 key，title 可以随便填写 </p>
 <p>4.验证测试</p>
-<pre><code>$ ssh -T git@github.com
-</code></pre><p>执行后提示：</p>
-<pre><code>Hi github! You’ve successfully authenticated, but GitHub does not provide shell access. 
-此时设置用户名和邮箱为注册Github时的名字
-
-$ git config --global user.name “xxx”
-$ git config --global user.email xxx@gmail.com
-</code></pre><p>name就是你github的名字, email是你github的邮箱</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>执行后提示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Hi github! You’ve successfully authenticated, but GitHub does not provide shell access. </span><br><span class="line">此时设置用户名和邮箱为注册Github时的名字</span><br><span class="line"></span><br><span class="line">$ git config --global user.name “xxx”</span><br><span class="line">$ git config --global user.email xxx@gmail.com</span><br></pre></td></tr></table></figure>
+<p>name就是你github的名字, email是你github的邮箱</p>
 <p>四.创建远程仓库在github上</p>
 <p><img src="https://img-blog.csdnimg.cn/20181119221429291.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>在此我创建一个名叫example的仓库，在repository name中输入example然后点击create repository</p>
 <p>点击复制地址</p>
 <p>五.建立本地仓库</p>
-<pre><code>$ mkdir example
-  #向文件夹中添加文件，加入仓库
-$ cd example
-$ git init 初始化仓库
-$ touch example.txt 创建一个txt文件
-$ git add . //.表示全添加 或者指定文件名
-  #提交到仓库，这个版本名字叫
-$ git commit -m &quot;first commit&quot; #&quot;first commit&quot;为备注可自行修改
-</code></pre><p>六.提交本地代码到远程（同步）</p>
-<pre><code>$ git remote add origin git@github.com:yourgithubname/yourrepositoryname 
-#此时用之前复制的仓库url 替换“git@github.com:yourgithubname/yourrepositoryname”
-$ git push -u origin master
-</code></pre><p>然后需要输入 name  和你账号的password</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir example</span><br><span class="line">  <span class="comment">#向文件夹中添加文件，加入仓库</span></span><br><span class="line">$ <span class="built_in">cd</span> example</span><br><span class="line">$ git init 初始化仓库</span><br><span class="line">$ touch example.txt 创建一个txt文件</span><br><span class="line">$ git add . //.表示全添加 或者指定文件名</span><br><span class="line">  <span class="comment">#提交到仓库，这个版本名字叫</span></span><br><span class="line">$ git commit -m <span class="string">"first commit"</span> <span class="comment">#"first commit"为备注可自行修改</span></span><br></pre></td></tr></table></figure>
+<p>六.提交本地代码到远程（同步）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git remote add origin git@github.com:yourgithubname/yourrepositoryname </span><br><span class="line"><span class="comment">#此时用之前复制的仓库url 替换“git@github.com:yourgithubname/yourrepositoryname”</span></span><br><span class="line">$ git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>然后需要输入 name  和你账号的password</p>
 <p>此时就上传成功</p>
 <p><img src="https://img-blog.csdnimg.cn/20181119221530283.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0phY2tSYXlfUg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
 <p>之后我们就可以检查远程仓库</p>
@@ -444,6 +451,14 @@ $ git push -u origin master
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          
+            <a href="/tags/github/" rel="tag"># github</a>
+          
+        </div>
+      
 
       
       
@@ -453,15 +468,15 @@ $ git push -u origin master
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/19/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/19/hello-world/" rel="prev" title="Hello World">
+                Hello World <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -538,7 +553,25 @@ $ git push -u origin master
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
