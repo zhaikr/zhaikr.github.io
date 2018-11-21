@@ -87,3 +87,10 @@ symbols_count_time:
   time: true
   total_symbols: true
   total_time: true
+ 
+# hexo-admin authentification
+admin:
+  username: zhaikr
+  password_hash: $2a$10$rMhGZCwOokng33KK4a7B2.ZOlcnV8ccKr171W6oSWlXF/3clHCQdS
+  secret: JacKRay
+  Command: './admin_script/hexo-generate.sh'

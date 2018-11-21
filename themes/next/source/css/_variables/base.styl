@@ -62,7 +62,7 @@ get_font_family(config) {
 }
 
 // Font families.
-$font-family-chinese      = "PingFang SC", "Microsoft YaHei"
+$font-family-chinese      = -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "STHeiti", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", "Droid Sans Fallback", "Microsoft YaHei"
 
 $font-family-base         = $font-family-chinese, sans-serif
 $font-family-base         = get_font_family('global'), $font-family-chinese, sans-serif if get_font_family('global')
@@ -311,7 +311,7 @@ $b2t-position-bottom          = -100px
 $b2t-position-bottom-on       = 19px
 $b2t-position-right           = 30px
 $b2t-font-size                = 12px
-$b2t-color                    = white
+$b2t-color                    = $black
 $b2t-bg-color                 = $black-deep
 
 // full-image
