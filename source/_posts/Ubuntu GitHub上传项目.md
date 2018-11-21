@@ -2,7 +2,7 @@
 title: 在Ubuntu上向Github上传项目
 date: 2018-11-19 10:00:00
 categories: github
-tag:[Ubuntu, github]
+tag: [Ubuntu, github]
 ---
 
 
