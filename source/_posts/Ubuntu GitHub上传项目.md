@@ -1,14 +1,28 @@
-﻿
+---
+title: 在Ubuntu上向Github上传项目
+date: 2018-11-19 10:00:00
+categories: github
+tag:[Ubuntu, github]
+---
+
+
+
+
+
 一.安装Git-LFS
 
 当向github上传一些项目时会有一些提示
 
-    $ remote: warning: Large files detected.
-    $ remote: error: File giant_file is 123.00 MB; this exceeds GitHub's file size limit of 100 MB
+```bash
+$ remote: warning: Large files detected.
+$ remote: error: File giant_file is 123.00 MB; this exceeds GitHub's file size limit of 100 MB
+```
 
 这时候就需要检查一下自己的github版本
 
-    $ git --version
+```bash
+$ git --version
+```
 
 如下图所示： 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2018111922111368.png)
@@ -16,15 +30,21 @@
 
  1.添加apt-get源
 
-    $ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+```bash
+$ curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+```
 
 2.安装Git-LFS
 
-    $ sudo apt-get install git-lfs
+```bash
+$ sudo apt-get install git-lfs
+```
 
 3.初始化Git-LFS
 
-    $ git lfs install
+```bash
+$ git lfs install
+```
 
 Git-LFS就安装完成了
 
@@ -45,40 +65,53 @@ Git-LFS就安装完成了
 
 1.检查秘钥
 
-    $ ls ~/.ssh/
+```bash
+$ ls ~/.ssh/
+```
 
 如果有秘钥进行备份
 
-    $ mkdir key_backup
+```bash
+$ mkdir key_backup
+```
 
-`
-    $ cp ~/.ssh/id_* k`ey_backup
-   
+```bash
+$ cp ~/.ssh/id_* key_backup
+```
+
 
  2.生成ssh秘钥
 
-    $ ssh-keygen -t rsa -C "your_email@example.com" 
-    #将your_email@example.com替换成你自己的邮箱
+```bash
+$ ssh-keygen -t rsa -C "your_email@example.com" 
+#将your_email@example.com替换成你自己的邮箱
+```
 
 之后会有提示直接回车就行了
 
 3.复制公钥
 
-    $ cat ~/.ssh/id_rsa.pub
+```bash
+$ cat ~/.ssh/id_rsa.pub
+```
 
 复制打开的内容到之前网站中的 key，title 可以随便填写 
 
 4.验证测试
 
-    $ ssh -T git@github.com
+```bash
+$ ssh -T git@github.com
+```
 
 执行后提示：
 
-    Hi github! You’ve successfully authenticated, but GitHub does not provide shell access. 
-    此时设置用户名和邮箱为注册Github时的名字
-    
-    $ git config --global user.name “xxx”
-    $ git config --global user.email xxx@gmail.com
+```bash
+Hi github! You’ve successfully authenticated, but GitHub does not provide shell access. 
+此时设置用户名和邮箱为注册Github时的名字
+
+$ git config --global user.name “xxx”
+$ git config --global user.email xxx@gmail.com
+```
 
 name就是你github的名字, email是你github的邮箱
 
@@ -94,20 +127,24 @@ name就是你github的名字, email是你github的邮箱
 
 五.建立本地仓库
 
-    $ mkdir example
-      #向文件夹中添加文件，加入仓库
-    $ cd example
-    $ git init 初始化仓库
-    $ touch example.txt 创建一个txt文件
-    $ git add . //.表示全添加 或者指定文件名
-      #提交到仓库，这个版本名字叫
-    $ git commit -m "first commit" #"first commit"为备注可自行修改
+```bash
+$ mkdir example
+  #向文件夹中添加文件，加入仓库
+$ cd example
+$ git init 初始化仓库
+$ touch example.txt 创建一个txt文件
+$ git add . //.表示全添加 或者指定文件名
+  #提交到仓库，这个版本名字叫
+$ git commit -m "first commit" #"first commit"为备注可自行修改
+```
 
 六.提交本地代码到远程（同步）
 
-    $ git remote add origin git@github.com:yourgithubname/yourrepositoryname 
-    #此时用之前复制的仓库url 替换“git@github.com:yourgithubname/yourrepositoryname”
-    $ git push -u origin master
+```bash
+$ git remote add origin git@github.com:yourgithubname/yourrepositoryname 
+#此时用之前复制的仓库url 替换“git@github.com:yourgithubname/yourrepositoryname”
+$ git push -u origin master
+```
 
 然后需要输入 name  和你账号的password
 
