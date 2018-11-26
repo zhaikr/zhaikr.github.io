@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.0" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="JackRay, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="##关于我正在上大学，学习图像识别、机器学习中。 email: 1119391474@qq.com">
+<meta property="og:type" content="website">
+<meta property="og:title" content="自述">
+<meta property="og:url" content="http://yoursite.com/about/index.html">
+<meta property="og:site_name" content="JackRay的小博客">
+<meta property="og:description" content="##关于我正在上大学，学习图像识别、机器学习中。 email: 1119391474@qq.com">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-11-21T14:03:51.684Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自述">
+<meta name="twitter:description" content="##关于我正在上大学，学习图像识别、机器学习中。 email: 1119391474@qq.com">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/about/">
+
+
+
+
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入密码') !== ''){
+                alert('密码错误');
+                history.back();
+            }
+        }
+    })();
+</script>
+  <title>通过人脸识别来返回学号信息（一卡通） | JackRay的小博客</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> <div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">JackRay的小博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/通过人脸识别来返回学号信息（一卡通）/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="JackRay">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/39522081.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="JackRay的小博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">通过人脸识别来返回学号信息（一卡通）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T16:57:00+08:00">2018-11-26</time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">4.2k字</span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">4 mins.分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="一-什么是人脸识别"><a href="#一-什么是人脸识别" class="headerlink" title="一.什么是人脸识别"></a>一.什么是人脸识别</h4><p>​    人脸识别，是基于人的脸部特征信息进行身份识别的一种生物识别技术。用摄像机或摄像头采集含有人脸的图像或视频流，并自动在图像中检测和跟踪人脸，进而对检测到的人脸进行脸部识别的一系列相关技术，通常也叫做人像识别、面部识别。</p>
+<p>​    人脸识别系统主要包括四个组成部分，分别为：人脸图像采集及检测、人脸图像预处理、人脸图像特征提取以及匹配与识别。</p>
+<h4 id="二-相关库和配置环境"><a href="#二-相关库和配置环境" class="headerlink" title="二.相关库和配置环境"></a>二.相关库和配置环境</h4><p>​    1.安装CMake</p>
+<p>​    如果你是Ubuntu用户就可以跳过你也可以选择升级CMake</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ sudo apt-get install software-properties-common</span><br><span class="line">$ sudo add-apt-repository ppa:george-edison55/cmake-3.x</span><br><span class="line">$ sudo apt-get update</span><br><span class="line"><span class="comment">#如果之前没有装CMake，执行</span></span><br><span class="line">$ sudo apt-get install cmake</span><br><span class="line"><span class="comment">#如果之前已经装过CMake</span></span><br><span class="line">$ sudo apt-get upgrade</span><br><span class="line"><span class="comment">#再次查看cmake的版本:</span></span><br><span class="line">$ cmake --version</span><br></pre></td></tr></table></figure>
+<p>​    2.Dlib下载</p>
+<p>​    这是Dlib的github网站<a href="https://github.com/davisking/dlib" target="_blank" rel="noopener">https://github.com/davisking/dlib</a></p>
+<p>​<img src="/2018/11/26/通过人脸识别来返回学号信息（一卡通）/a1.png" alt="在这里插入图片描述"></p>
+<p>​    箭头1就是clone地址如果你有GitHub可以输入以下代码(Ubuntu系统)</p>
+<p>​    </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir Dlib</span><br><span class="line">$ <span class="built_in">cd</span> Dlib</span><br><span class="line">$ git init</span><br><span class="line">$ git <span class="built_in">clone</span> <span class="comment">#复制clone地址</span></span><br></pre></td></tr></table></figure>
+<p>​    箭头2就是直接下载ZIP压缩包进行解压就好了</p>
+<p>​    下好后进入Dlib文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> Dlib</span><br><span class="line">$ python setup.py install</span><br><span class="line"><span class="comment">#等待安装</span></span><br></pre></td></tr></table></figure>
+<p>​    3.安装 scikit-image</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install scikit-image</span><br></pre></td></tr></table></figure>
+<p>​    三.开始人脸识别</p>
+<p>​    这里，shape_predictor_68_face_landmarks.dat是已经训练好的人脸关键点检测器。</p>
+<p>​    dlib_face_recognition_resnet_model_v1.dat是训练好的ResNet人脸识别模型。</p>
+<p>​    所有文件都可以在以下网址下载：<a href="http://dlib.net/files/" target="_blank" rel="noopener">http://dlib.net/files/</a>。</p>
+<p><img src="/2018/11/26/通过人脸识别来返回学号信息（一卡通）/a2.png" alt="在这里插入图片描述"></p>
+<p>​    其中all_faces文件夹是放我们学校所有人一卡通上的证件照</p>
+<p>​    首先我们程序运行的思路是通过all_face_128D.py这个程序来先将所有证件照的描述子提取（128D向量）然后与照片文件的名字组成字典，最后将这个字典存入本地。这时我们就可以用face_rec.py来对证件照识别通过计算传入的人脸描述子与保存的字典中的描述子进行计算欧式距离。</p>
+<p>​    以下是all_face_128D.py代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> dlib</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">current_path = os.getcwd() <span class="comment">#获取当前路径</span></span><br><span class="line">predictor_path = current_path + <span class="string">'/model/shape_predictor_68_face_landmarks.dat'</span>  <span class="comment"># 1.人脸关键点检测器</span></span><br><span class="line">face_rec_model_path = current_path + <span class="string">'/model/dlib_face_recognition_resnet_model_v1.dat'</span>   <span class="comment"># 2.人脸识别模型</span></span><br><span class="line">face_folder_path = current_path + <span class="string">'/all_faces'</span>    <span class="comment"># 3.所有人脸文件夹</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">detector = dlib.get_frontal_face_detector() <span class="comment">#加载正脸识别器</span></span><br><span class="line">shaper = dlib.shape_predictor(predictor_path) <span class="comment">#加载人脸关键识别器</span></span><br><span class="line">facerec = dlib.face_recognition_model_v1(face_rec_model_path) <span class="comment">#加载人脸模型</span></span><br><span class="line"></span><br><span class="line">all_face_d = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> img_path <span class="keyword">in</span> glob.glob(os.path.join(face_folder_path,<span class="string">"*.jpg"</span>)):</span><br><span class="line">    print(<span class="string">"processing file: &#123;&#125;"</span>.format(img_path))</span><br><span class="line">    a = os.path.basename(img_path)</span><br><span class="line">    b = re.compile(<span class="string">'\d+'</span>)</span><br><span class="line">    filename = b.findall(a)[<span class="number">0</span>]</span><br><span class="line">    print(filename)</span><br><span class="line">    img = io.imread(img_path)</span><br><span class="line">    dets = detector(img,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"number of faces detected: &#123;&#125;"</span>.format(len(dets)))</span><br><span class="line">    <span class="keyword">for</span> index, face <span class="keyword">in</span> enumerate(dets):</span><br><span class="line">        shape = shaper(img, face)      <span class="comment"># 2.关键点检测</span></span><br><span class="line">        <span class="comment"># 3.描述子提取，128D向量</span></span><br><span class="line">        face_desciptor = facerec.compute_face_descriptor(img, shape)  </span><br><span class="line">        print(face_desciptor)</span><br><span class="line">        vector = np.array(face_desciptor)    <span class="comment">#转换为numpy array</span></span><br><span class="line">        all_face_d.setdefault(filename,vector)</span><br><span class="line"></span><br><span class="line">np.save(<span class="string">'all_face_vectors.npy'</span>,all_face_d)</span><br></pre></td></tr></table></figure>
+<p>然后是face_rec.py的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> dlib</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> glob</span><br><span class="line"><span class="keyword">from</span> skimage <span class="keyword">import</span> io</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">current_path = os.getcwd() <span class="comment">#获取当前路径</span></span><br><span class="line">predictor_path = current_path + <span class="string">'/model/shape_predictor_68_face_landmarks.dat'</span>  <span class="comment"># 1.人脸关键点检测器</span></span><br><span class="line">face_rec_model_path = current_path + <span class="string">'/model/dlib_face_recognition_resnet_model_v1.dat'</span>   <span class="comment"># 2.人脸识别模型</span></span><br><span class="line">face_folder_path = current_path + <span class="string">'/all_face'</span>    <span class="comment"># 3.所有人脸文件夹</span></span><br><span class="line">imgs_path = io.imread(<span class="string">'img/img.jpg'</span>)    <span class="comment"># 4.图片地址</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">detector = dlib.get_frontal_face_detector() <span class="comment">#加载正脸识别器</span></span><br><span class="line">shaper = dlib.shape_predictor(predictor_path) <span class="comment">#加载人脸关键识别器</span></span><br><span class="line">facerec = dlib.face_recognition_model_v1(face_rec_model_path) <span class="comment">#加载人脸模型 </span></span><br><span class="line"></span><br><span class="line">all_face_vectors = np.load(<span class="string">'all_face_vectors.npy'</span>)</span><br><span class="line">data = all_face_vectors.item()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">face_recognition</span><span class="params">(img_path)</span>:</span></span><br><span class="line">    img = img_path</span><br><span class="line">    dets = detector(img, <span class="number">1</span>)</span><br><span class="line">    dist = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> index, face <span class="keyword">in</span> enumerate(dets):</span><br><span class="line">        shape = shaper(img, face)      <span class="comment"># 2.关键点检测</span></span><br><span class="line">        <span class="comment"># 3.描述子提取，128D向量</span></span><br><span class="line">        face_desciptor = facerec.compute_face_descriptor(img, shape)   </span><br><span class="line">        d_test = np.array(face_desciptor)    <span class="comment">#转换为numpy array</span></span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> key,value <span class="keyword">in</span> data.items():</span><br><span class="line">            dist_ = np.linalg.norm(value-d_test)</span><br><span class="line">            dist.setdefault(key,dist_)</span><br><span class="line">            </span><br><span class="line">    </span><br><span class="line">    cd_sorted = sorted(dist.items(), key=<span class="keyword">lambda</span> d:d[<span class="number">1</span>])</span><br><span class="line">    <span class="comment">#print('\n The person ID is: %s' % ( cd_sorted[0][0] )  ) </span></span><br><span class="line">    <span class="keyword">return</span> cd_sorted[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">        face_recognition(imgs_path)</span><br></pre></td></tr></table></figure>
+<p>  以上就是所有代码和基本思路</p>
+<p>我的GitHub上也有全部代码：<a href="https://github.com/zhaikr/face_recoginiton" target="_blank" rel="noopener">https://github.com/zhaikr/face_recoginiton</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+     
+       <div>
+    
+        <div style="text-align:center;color: #555;font-size:14px;">-------------The End-------------</div>
+    
+</div>
+
+
+     
+    </div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/dlib人脸识别库/" rel="tag"># dlib人脸识别库</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/23/一卡通识别（学校竞赛项目）/" rel="next" title="一卡通识别（学校竞赛项目）">
+                <i class="fa fa-chevron-left"></i> 一卡通识别（学校竞赛项目）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/uploads/39522081.jpg" alt="JackRay">
+            
+              <p class="site-author-name" itemprop="name">JackRay</p>
+              <p class="site-description motion-element" itemprop="description">儿时不知画中意，长大以是画中人</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://zhaikr.github.io/" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:1119391474@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#一-什么是人脸识别"><span class="nav-number">1.</span> <span class="nav-text">一.什么是人脸识别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-相关库和配置环境"><span class="nav-number">2.</span> <span class="nav-text">二.相关库和配置环境</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2019 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">JackRay</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+    <span title="站点总字数">8k</span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    
+    <span title="站点总阅读次数">8 mins.</span>
+  
+</div>
+
+
+  <div class="powered-by"> </div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>;
+    <script>
+    $("body").backstretch("https://img.zcool.cn/community/01f36b57de8c260000012e7edc3f78.jpg@1280w_1l_2o_100sh.jpg");
+    </script>
+</body>
+</html>
